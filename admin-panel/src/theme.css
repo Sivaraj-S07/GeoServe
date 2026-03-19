@@ -1,0 +1,841 @@
+/* ═══════════════════════════════════════════════════════════════
+   GeoServe — Complete Dark / Light Theme System
+   Strategy: CSS custom properties on :root (light) + [data-theme="dark"]
+   All color-sensitive elements use variables, never hardcoded hex.
+═══════════════════════════════════════════════════════════════ */
+
+/* ─────────────────────────────────────────────
+   1. SMOOTH TRANSITION on theme switch
+   Only color props — NOT transforms/opacity so
+   existing animations still work normally.
+───────────────────────────────────────────── */
+*,
+*::before,
+*::after {
+  transition-property: background-color, border-color, color, box-shadow, fill, stroke;
+  transition-duration: 0.2s;
+  transition-timing-function: ease;
+}
+
+/* Don't override animation-specific transitions */
+.spinner,
+[class*="anim-"],
+.btn-primary,
+.btn-primary:hover,
+.card,
+.card:hover {
+  transition-property: background-color, border-color, color, box-shadow,
+    transform, opacity;
+  transition-duration: 0.2s;
+}
+
+/* ─────────────────────────────────────────────
+   2. LIGHT MODE TOKENS  (the default)
+───────────────────────────────────────────── */
+:root {
+  /* Surfaces */
+  --surface:        #ffffff;
+  --surface-raised: #f8fafc;
+  --surface-hover:  #f1f5f9;
+  --surface-overlay:#ffffff;
+  --bg:             #f8fafc;
+  --bg-alt:         #f1f5f9;
+
+  /* Text */
+  --text:           #0f172a;
+  --text-secondary: #334155;
+  --muted:          #64748b;
+  --muted-light:    #94a3b8;
+
+  /* Borders */
+  --border:         #e2e8f0;
+  --border-light:   #f1f5f9;
+  --border-strong:  #cbd5e1;
+
+  /* Shadows */
+  --shadow-sm: 0 1px 3px rgba(15,23,42,.07), 0 1px 2px rgba(15,23,42,.04);
+  --shadow-md: 0 4px 16px rgba(15,23,42,.08), 0 2px 6px rgba(15,23,42,.04);
+  --shadow-lg: 0 12px 40px rgba(15,23,42,.1), 0 4px 12px rgba(15,23,42,.06);
+  --shadow-xl: 0 24px 60px rgba(15,23,42,.14), 0 8px 20px rgba(15,23,42,.08);
+
+  /* Navbar */
+  --navbar-bg:     #ffffff;
+  --navbar-border: transparent;
+
+  /* Inputs */
+  --input-bg:      #ffffff;
+
+  /* Scrollbar */
+  --scrollbar:     #cbd5e1;
+  --scrollbar-hover:#94a3b8;
+
+  /* Primary (same both modes) */
+  --primary:        #4f46e5;
+  --primary-dark:   #3730a3;
+  --primary-mid:    #6366f1;
+  --primary-light:  #818cf8;
+  --primary-bg:     #eef2ff;
+  --primary-border: #c7d2fe;
+  --primary-soft:   #e0e7ff;
+
+  /* Status colors — light version */
+  --green:        #059669;
+  --green-dark:   #047857;
+  --green-bg:     #ecfdf5;
+  --green-soft:   #d1fae5;
+  --green-border: #a7f3d0;
+  --green-mid:    #34d399;
+
+  --blue:         #2563eb;
+  --blue-bg:      #eff6ff;
+  --blue-soft:    #dbeafe;
+  --blue-border:  #bfdbfe;
+  --blue-mid:     #60a5fa;
+
+  --amber:        #d97706;
+  --amber-bg:     #fffbeb;
+  --amber-soft:   #fef3c7;
+  --amber-border: #fde68a;
+
+  --red:          #dc2626;
+  --red-bg:       #fef2f2;
+  --red-soft:     #fee2e2;
+  --red-border:   #fecaca;
+
+  --purple:       #7c3aed;
+  --purple-dark:  #6d28d9;
+  --purple-bg:    #f5f3ff;
+  --purple-soft:  #ede9fe;
+  --purple-border:#ddd6fe;
+  --purple-mid:   #a78bfa;
+
+  /* Other tokens */
+  --teal:         #0d9488;
+  --teal-bg:      #f0fdfa;
+  --teal-border:  #99f6e4;
+  --indigo:       #4338ca;
+  --indigo-bg:    #eef2ff;
+  --indigo-border:#c7d2fe;
+  --rose:         #e11d48;
+  --rose-bg:      #fff1f2;
+  --rose-border:  #fecdd3;
+
+  --radius:    10px;
+  --radius-sm: 6px;
+  --radius-lg: 16px;
+  --radius-xl: 20px;
+}
+
+/* ─────────────────────────────────────────────
+   3. DARK MODE TOKENS
+   Applied when <html data-theme="dark">
+───────────────────────────────────────────── */
+[data-theme="dark"] {
+  /* Surfaces */
+  --surface:        #1e2535;
+  --surface-raised: #252e42;
+  --surface-hover:  #2d3654;
+  --surface-overlay:#1e2535;
+  --bg:             #141926;
+  --bg-alt:         #1a2133;
+
+  /* Text */
+  --text:           #f0f4ff;
+  --text-secondary: #c8d3eb;
+  --muted:          #8b9bc8;
+  --muted-light:    #5a6a96;
+
+  /* Borders */
+  --border:         #2d3a56;
+  --border-light:   #232f4a;
+  --border-strong:  #3d4f6e;
+
+  /* Shadows (stronger in dark to pop elements) */
+  --shadow-sm: 0 1px 4px rgba(0,0,0,.4),  0 1px 2px rgba(0,0,0,.3);
+  --shadow-md: 0 4px 20px rgba(0,0,0,.5), 0 2px 8px rgba(0,0,0,.35);
+  --shadow-lg: 0 12px 44px rgba(0,0,0,.6), 0 4px 14px rgba(0,0,0,.4);
+  --shadow-xl: 0 24px 64px rgba(0,0,0,.7), 0 8px 22px rgba(0,0,0,.5);
+
+  /* Navbar */
+  --navbar-bg:     #1e2535;
+  --navbar-border: #2d3a56;
+
+  /* Inputs */
+  --input-bg:      #252e42;
+
+  /* Scrollbar */
+  --scrollbar:      #2d3a56;
+  --scrollbar-hover:#3d4f6e;
+
+  /* Primary (slightly lighter for dark bg readability) */
+  --primary:        #6366f1;
+  --primary-dark:   #4f46e5;
+  --primary-mid:    #818cf8;
+  --primary-light:  #a5b4fc;
+  --primary-bg:     #1e1b4b;
+  --primary-border: #3730a3;
+  --primary-soft:   #2e2a6e;
+
+  /* Status colors — dark versions (desaturated backgrounds, bright text) */
+  --green:        #34d399;
+  --green-dark:   #10b981;
+  --green-bg:     #0c2018;
+  --green-soft:   #0f2e21;
+  --green-border: #166534;
+  --green-mid:    #4ade80;
+
+  --blue:         #60a5fa;
+  --blue-bg:      #0d1f38;
+  --blue-soft:    #102347;
+  --blue-border:  #1e40af;
+  --blue-mid:     #93c5fd;
+
+  --amber:        #fbbf24;
+  --amber-bg:     #271c07;
+  --amber-soft:   #2f220a;
+  --amber-border: #92400e;
+
+  --red:          #f87171;
+  --red-bg:       #2a0d0d;
+  --red-soft:     #301212;
+  --red-border:   #991b1b;
+
+  --purple:       #c084fc;
+  --purple-dark:  #a855f7;
+  --purple-bg:    #200d38;
+  --purple-soft:  #27123f;
+  --purple-border:#6d28d9;
+  --purple-mid:   #d8b4fe;
+
+  /* Other tokens */
+  --teal:         #2dd4bf;
+  --teal-bg:      #0a2420;
+  --teal-border:  #0f766e;
+  --indigo:       #818cf8;
+  --indigo-bg:    #1e1b4b;
+  --indigo-border:#3730a3;
+  --rose:         #fb7185;
+  --rose-bg:      #2a0a12;
+  --rose-border:  #9f1239;
+}
+
+/* ─────────────────────────────────────────────
+   4. BASE ELEMENT THEMING
+───────────────────────────────────────────── */
+html {
+  color-scheme: light;
+}
+[data-theme="dark"] {
+  color-scheme: dark;
+}
+
+body {
+  background: var(--bg);
+  color: var(--text);
+}
+
+h1, h2, h3, h4, h5, h6 {
+  color: var(--text);
+}
+
+a {
+  color: var(--primary);
+}
+
+/* ─────────────────────────────────────────────
+   5. INPUTS / FORMS
+───────────────────────────────────────────── */
+input, textarea, select {
+  background: var(--input-bg);
+  color: var(--text);
+  border-color: var(--border);
+}
+
+input::placeholder,
+textarea::placeholder {
+  color: var(--muted-light);
+}
+
+[data-theme="dark"] select option {
+  background: var(--surface);
+  color: var(--text);
+}
+
+label {
+  color: var(--text-secondary);
+}
+
+/* ─────────────────────────────────────────────
+   6. SCROLLBAR
+───────────────────────────────────────────── */
+::-webkit-scrollbar-thumb          { background: var(--scrollbar); }
+::-webkit-scrollbar-thumb:hover    { background: var(--scrollbar-hover); }
+
+/* ─────────────────────────────────────────────
+   7. NAVBAR
+───────────────────────────────────────────── */
+.gs-navbar {
+  background: var(--navbar-bg);
+  border-bottom: 1px solid var(--navbar-border);
+  height: 64px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 28px;
+  position: sticky;
+  top: 0;
+  z-index: 300;
+}
+.gs-navbar--scrolled {
+  border-bottom-color: var(--border);
+  box-shadow: var(--shadow-md);
+}
+
+.navbar-hamburger {
+  background: var(--surface);
+  border-color: var(--border);
+}
+.navbar-hamburger:hover {
+  border-color: var(--primary);
+  background: var(--primary-bg);
+}
+
+/* Dropdown */
+.navbar-dropdown {
+  position: absolute;
+  top: calc(100% + 10px);
+  right: 0;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-lg);
+  min-width: 220px;
+  overflow: hidden;
+  z-index: 400;
+  animation: slideUp .2s cubic-bezier(.16,1,.3,1);
+}
+
+/* ─────────────────────────────────────────────
+   8. CARDS
+───────────────────────────────────────────── */
+.card,
+.stat-card,
+.booking-card,
+.stat-item,
+.section-card,
+.metric-card,
+.worker-card-v2,
+.verif-card-enhanced,
+.qr-container {
+  background: var(--surface);
+  border-color: var(--border);
+  color: var(--text);
+}
+
+.empty-state {
+  background: var(--surface);
+  border-color: var(--border);
+}
+
+/* ─────────────────────────────────────────────
+   9. SIDEBAR
+───────────────────────────────────────────── */
+.dashboard-sidebar {
+  background: var(--surface) !important;
+  border-right: 1px solid var(--border) !important;
+}
+
+.sidebar-tab {
+  color: var(--muted);
+}
+.sidebar-tab:hover {
+  background: var(--primary-bg);
+  color: var(--primary);
+}
+.sidebar-tab.active {
+  background: var(--primary-bg);
+  color: var(--primary);
+}
+.sidebar-tab.blue.active {
+  background: var(--blue-bg);
+  color: var(--blue);
+}
+.sidebar-tab.purple.active {
+  background: var(--purple-bg);
+  color: var(--purple);
+}
+
+/* ─────────────────────────────────────────────
+   10. BUTTONS
+───────────────────────────────────────────── */
+.icon-btn {
+  background: var(--surface);
+  border-color: var(--border);
+  color: var(--muted);
+}
+.icon-btn:hover {
+  border-color: var(--primary);
+  color: var(--primary);
+  background: var(--primary-bg);
+}
+.icon-btn.danger:hover {
+  border-color: var(--red);
+  color: var(--red);
+  background: var(--red-bg);
+}
+
+/* ─────────────────────────────────────────────
+   11. BADGES  (already use CSS vars, just tune dark)
+───────────────────────────────────────────── */
+.badge-green  { background: var(--green-bg);   color: var(--green);   border-color: var(--green-border);  }
+.badge-blue   { background: var(--blue-bg);    color: var(--blue);    border-color: var(--blue-border);   }
+.badge-amber  { background: var(--amber-bg);   color: var(--amber);   border-color: var(--amber-border);  }
+.badge-red    { background: var(--red-bg);     color: var(--red);     border-color: var(--red-border);    }
+.badge-purple { background: var(--purple-bg);  color: var(--purple);  border-color: var(--purple-border); }
+.badge-gray   { background: var(--surface-raised); color: var(--muted); border-color: var(--border); }
+
+/* ─────────────────────────────────────────────
+   12. FILTER / SEARCH BARS
+───────────────────────────────────────────── */
+.filter-bar-v2 {
+  background: var(--surface);
+  border-color: var(--border);
+}
+.search-wrapper input {
+  background: var(--bg-alt);
+  border-color: var(--border);
+  color: var(--text);
+}
+.search-wrapper input:focus {
+  background: var(--surface);
+}
+
+/* ─────────────────────────────────────────────
+   13. PILL TABS
+───────────────────────────────────────────── */
+.pill-tabs {
+  background: var(--bg-alt);
+  border-color: var(--border);
+}
+.pill-tab {
+  color: var(--muted);
+}
+.pill-tab.active {
+  background: var(--surface);
+  color: var(--primary);
+}
+
+/* ─────────────────────────────────────────────
+   14. TAG CHIPS
+───────────────────────────────────────────── */
+.tag-chip {
+  background: var(--bg-alt);
+  border-color: var(--border);
+  color: var(--muted);
+}
+.tag-chip:hover, .tag-chip.active {
+  background: var(--primary-bg);
+  border-color: var(--primary-border);
+  color: var(--primary);
+}
+
+/* ─────────────────────────────────────────────
+   15. BANNERS & INFO BLOCKS
+───────────────────────────────────────────── */
+.info-banner {
+  background: var(--primary-bg);
+  border-color: var(--primary-border);
+  color: var(--indigo);
+}
+.info-banner.success {
+  background: var(--green-bg);
+  border-color: var(--green-border);
+  color: var(--green);
+}
+.info-banner.warning {
+  background: var(--amber-bg);
+  border-color: var(--amber-border);
+  color: var(--amber);
+}
+
+.contact-strip {
+  background: var(--green-bg);
+  border-color: var(--green-border);
+  color: var(--green);
+}
+
+.location-btn {
+  background: var(--bg-alt);
+  border-color: var(--blue-border);
+  color: var(--blue);
+}
+.location-btn:hover {
+  background: var(--blue-bg);
+}
+.location-btn.active {
+  background: var(--green-bg);
+  border-color: var(--green-border);
+  color: var(--green);
+}
+
+/* ─────────────────────────────────────────────
+   16. TABLE
+───────────────────────────────────────────── */
+[data-theme="dark"] table thead tr th {
+  background: var(--surface-raised) !important;
+  color: var(--muted) !important;
+  border-color: var(--border) !important;
+}
+[data-theme="dark"] table tbody tr:hover td {
+  background: var(--surface-hover) !important;
+}
+[data-theme="dark"] table td,
+[data-theme="dark"] table th {
+  border-color: var(--border) !important;
+  color: var(--text);
+}
+
+/* ─────────────────────────────────────────────
+   17. MODALS & OVERLAYS
+───────────────────────────────────────────── */
+[data-theme="dark"] .mobile-overlay {
+  background: rgba(0, 0, 0, 0.65);
+}
+
+/* ─────────────────────────────────────────────
+   18. ACTION BUTTONS
+───────────────────────────────────────────── */
+.action-btn-primary {
+  background: var(--primary-bg);
+  border-color: var(--primary-border);
+  color: var(--primary);
+}
+.action-btn-danger {
+  background: var(--red-bg);
+  border-color: var(--red-border);
+  color: var(--red);
+}
+.action-btn-success {
+  background: var(--green-bg);
+  border-color: var(--green-border);
+  color: var(--green);
+}
+
+/* ─────────────────────────────────────────────
+   19. SKELETON LOADER (dark version)
+───────────────────────────────────────────── */
+[data-theme="dark"] .skeleton {
+  background: linear-gradient(90deg, var(--surface-raised) 25%, var(--surface-hover) 50%, var(--surface-raised) 75%);
+  background-size: 200% 100%;
+}
+
+/* ─────────────────────────────────────────────
+   20. EXPERIENCE / GRADIENT BLOCKS (darken)
+───────────────────────────────────────────── */
+.experience-block {
+  background: var(--blue-bg);
+  border-color: var(--blue-border);
+  color: var(--text);
+}
+
+/* ─────────────────────────────────────────────
+   21. AUTH PAGES
+───────────────────────────────────────────── */
+.auth-form-card {
+  background: var(--surface);
+  border: 1.5px solid var(--border);
+}
+
+/* ─────────────────────────────────────────────
+   22. SCROLLBAR THEMING FOR DASHBOARD
+───────────────────────────────────────────── */
+.dashboard-main::-webkit-scrollbar-thumb {
+  background: var(--border);
+}
+
+/* ─────────────────────────────────────────────
+   23. PAYMENT BADGE
+───────────────────────────────────────────── */
+.payment-badge.paid {
+  background: var(--green-bg);
+  border-color: var(--green-border);
+  color: var(--green);
+}
+.payment-badge.pending {
+  background: var(--amber-bg);
+  border-color: var(--amber-border);
+  color: var(--amber);
+}
+
+/* ─────────────────────────────────────────────
+   24. ADMIN DARK TABLE ROW HOVER
+───────────────────────────────────────────── */
+tr.table-row-hover:hover td {
+  background: var(--primary-bg) !important;
+}
+
+/* ─────────────────────────────────────────────
+   25. SECTION DIVIDERS
+───────────────────────────────────────────── */
+.section-divider::before,
+.section-divider::after {
+  background: var(--border);
+}
+.divider {
+  background: var(--border);
+}
+.progress-bar {
+  background: var(--border);
+}
+
+/* ═══════════════════════════════════════════════
+   THEME TOGGLE BUTTON STYLES
+═══════════════════════════════════════════════ */
+.theme-toggle {
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 2px;
+  display: flex;
+  align-items: center;
+  border-radius: 99px;
+  outline: none;
+}
+.theme-toggle:focus-visible .theme-toggle__track {
+  outline: 2px solid var(--primary);
+  outline-offset: 2px;
+}
+
+.theme-toggle__track {
+  position: relative;
+  display: flex;
+  align-items: center;
+  width: 50px;
+  height: 26px;
+  border-radius: 99px;
+  background: var(--surface-raised);
+  border: 1.5px solid var(--border);
+  padding: 2px;
+  transition: background 0.3s ease, border-color 0.3s ease !important;
+}
+
+.theme-toggle--dark .theme-toggle__track {
+  background: var(--primary-bg);
+  border-color: var(--primary-border);
+}
+
+.theme-toggle__thumb {
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  background: var(--surface);
+  box-shadow: var(--shadow-md);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  flex-shrink: 0;
+  /* Override the global transition for thumb-specific behavior */
+  transition: transform 0.3s cubic-bezier(.34,1.56,.64,1),
+              background 0.3s ease,
+              box-shadow 0.2s ease !important;
+  transform: translateX(0);
+}
+
+.theme-toggle--dark .theme-toggle__thumb {
+  transform: translateX(24px);
+  background: var(--primary);
+  box-shadow: 0 0 10px rgba(99,102,241,.5);
+}
+
+/* Sun icon — visible in light mode */
+.theme-icon {
+  position: absolute;
+  transition: opacity 0.25s ease, transform 0.3s ease !important;
+}
+.theme-icon--sun {
+  color: #f59e0b;
+  opacity: 1;
+  transform: scale(1) rotate(0deg);
+}
+.theme-icon--moon {
+  color: #e0e7ff;
+  opacity: 0;
+  transform: scale(0.5) rotate(45deg);
+}
+
+.theme-toggle--dark .theme-icon--sun {
+  opacity: 0;
+  transform: scale(0.5) rotate(-45deg);
+}
+.theme-toggle--dark .theme-icon--moon {
+  opacity: 1;
+  transform: scale(1) rotate(0deg);
+}
+
+.theme-toggle:hover .theme-toggle__track {
+  border-color: var(--primary);
+}
+
+/* ═══════════════════════════════════════════════
+   DARK MODE — INLINE STYLE OVERRIDES
+   These use CSS variables to neutralise the
+   hardcoded hex values in inline JSX styles.
+═══════════════════════════════════════════════ */
+
+/* ── Override hardcoded white backgrounds ── */
+[data-theme="dark"] [style*="background: \"white\""],
+[data-theme="dark"] [style*="background:\"white\""],
+[data-theme="dark"] [style*="background: white"],
+[data-theme="dark"] [style*="background:white"] {
+  background: var(--surface) !important;
+}
+[data-theme="dark"] [style*="background: \"#fff\""],
+[data-theme="dark"] [style*="background:\"#fff\""],
+[data-theme="dark"] [style*="background: #fff"],
+[data-theme="dark"] [style*="background:#fff"] {
+  background: var(--surface) !important;
+}
+[data-theme="dark"] [style*="background: \"#ffffff\""],
+[data-theme="dark"] [style*="background: #ffffff"] {
+  background: var(--surface) !important;
+}
+
+/* ── Override light bg shades ── */
+[data-theme="dark"] [style*="background: \"#f8fafc\""],
+[data-theme="dark"] [style*="background: #f8fafc"],
+[data-theme="dark"] [style*="background:#f8fafc"] {
+  background: var(--bg) !important;
+}
+[data-theme="dark"] [style*="background: \"#f1f5f9\""],
+[data-theme="dark"] [style*="background: #f1f5f9"],
+[data-theme="dark"] [style*="background:#f1f5f9"] {
+  background: var(--bg-alt) !important;
+}
+[data-theme="dark"] [style*="background: \"#fafafa\""],
+[data-theme="dark"] [style*="background: #fafafa"] {
+  background: var(--bg) !important;
+}
+
+/* ── Override hardcoded dark text ── */
+[data-theme="dark"] [style*="color: \"#0f172a\""],
+[data-theme="dark"] [style*="color: #0f172a"],
+[data-theme="dark"] [style*="color:#0f172a"] {
+  color: var(--text) !important;
+}
+[data-theme="dark"] [style*="color: \"#1e293b\""],
+[data-theme="dark"] [style*="color: #1e293b"],
+[data-theme="dark"] [style*="color:#1e293b"] {
+  color: var(--text) !important;
+}
+[data-theme="dark"] [style*="color: \"#334155\""],
+[data-theme="dark"] [style*="color: #334155"],
+[data-theme="dark"] [style*="color:#334155"] {
+  color: var(--text-secondary) !important;
+}
+[data-theme="dark"] [style*="color: \"#374151\""],
+[data-theme="dark"] [style*="color: #374151"],
+[data-theme="dark"] [style*="color:#374151"] {
+  color: var(--text-secondary) !important;
+}
+[data-theme="dark"] [style*="color: \"#475569\""],
+[data-theme="dark"] [style*="color: #475569"],
+[data-theme="dark"] [style*="color:#475569"] {
+  color: var(--text-secondary) !important;
+}
+[data-theme="dark"] [style*="color: \"#64748b\""],
+[data-theme="dark"] [style*="color: #64748b"],
+[data-theme="dark"] [style*="color:#64748b"] {
+  color: var(--muted) !important;
+}
+[data-theme="dark"] [style*="color: \"#94a3b8\""],
+[data-theme="dark"] [style*="color: #94a3b8"],
+[data-theme="dark"] [style*="color:#94a3b8"] {
+  color: var(--muted) !important;
+}
+[data-theme="dark"] [style*="color: \"#9ca3af\""],
+[data-theme="dark"] [style*="color: #9ca3af"],
+[data-theme="dark"] [style*="color:#9ca3af"] {
+  color: var(--muted) !important;
+}
+[data-theme="dark"] [style*="color: \"#6b7280\""],
+[data-theme="dark"] [style*="color: #6b7280"],
+[data-theme="dark"] [style*="color:#6b7280"] {
+  color: var(--muted) !important;
+}
+
+/* ── Override hardcoded light borders ── */
+[data-theme="dark"] [style*="border: \"1.5px solid #e2e8f0\""],
+[data-theme="dark"] [style*="border: 1.5px solid #e2e8f0"],
+[data-theme="dark"] [style*="border:1.5px solid #e2e8f0"],
+[data-theme="dark"] [style*="border: 1px solid #e2e8f0"] {
+  border-color: var(--border) !important;
+}
+[data-theme="dark"] [style*="border: 1.5px solid #e8ecf0"],
+[data-theme="dark"] [style*="border:1.5px solid #e8ecf0"],
+[data-theme="dark"] [style*="borderColor: \"#e2e8f0\""] {
+  border-color: var(--border) !important;
+}
+[data-theme="dark"] [style*="border-color: #e2e8f0"],
+[data-theme="dark"] [style*="borderColor: #e2e8f0"] {
+  border-color: var(--border) !important;
+}
+
+/* ── Specific hardcoded auth page backgrounds ── */
+[data-theme="dark"] [style*="background: linear-gradient(135deg, #f5f3ff"],
+[data-theme="dark"] [style*="background: linear-gradient(135deg, #eef2ff"],
+[data-theme="dark"] [style*="background: linear-gradient(135deg, #f8fafc"],
+[data-theme="dark"] [style*="background: linear-gradient(135deg, #ecfdf5 0%"] {
+  background: linear-gradient(135deg, var(--bg), var(--surface)) !important;
+}
+
+/* ── Table thead overrides ── */
+[data-theme="dark"] thead,
+[data-theme="dark"] thead tr,
+[data-theme="dark"] thead td,
+[data-theme="dark"] thead th {
+  background: var(--surface-raised) !important;
+}
+
+/* ── Hardcoded input backgrounds ── */
+[data-theme="dark"] input[style*="background: #f9fafb"],
+[data-theme="dark"] input[style*="background:#f9fafb"],
+[data-theme="dark"] [style*="background: #f9fafb"] {
+  background: var(--input-bg) !important;
+  color: var(--text) !important;
+}
+
+/* ── Specific page backgrounds ── */
+[data-theme="dark"] .dashboard-main {
+  background: var(--bg) !important;
+}
+
+/* BookingCard timer */
+[data-theme="dark"] [style*="background: linear-gradient(135deg, #0f172a"] {
+  background: linear-gradient(135deg, #0a0e1a, #1a1f36) !important;
+}
+
+/* ── Glass card dark mode ── */
+[data-theme="dark"] .glass-card {
+  background: rgba(30, 37, 53, 0.8);
+  border-color: var(--border);
+}
+
+/* ── Verification page ── */
+[data-theme="dark"] [style*="background: rgba(255,255,255,.06)"] {
+  background: rgba(255,255,255,.03) !important;
+}
+[data-theme="dark"] [style*="background: rgba(255,255,255,.08)"] {
+  background: rgba(255,255,255,.04) !important;
+}
+[data-theme="dark"] [style*="background: rgba(255,255,255,.12)"] {
+  background: rgba(255,255,255,.06) !important;
+}
+
+/* ── Language Switcher button dark ── */
+[data-theme="dark"] .language-btn {
+  background: var(--surface);
+  border-color: var(--border);
+  color: var(--text-secondary);
+}
+

@@ -1,0 +1,9 @@
+[
+  { "id": 1, "name": "Plumber",      "icon": "wrench"      },
+  { "id": 2, "name": "Electrician",  "icon": "zap"         },
+  { "id": 3, "name": "Carpenter",    "icon": "home"        },
+  { "id": 4, "name": "Mechanic",     "icon": "car"         },
+  { "id": 5, "name": "House Cleaner","icon": "globe"       },
+  { "id": 6, "name": "Painter",      "icon": "layers"      },
+  { "id": 7, "name": "Gardener",     "icon": "paw-print"   }
+]

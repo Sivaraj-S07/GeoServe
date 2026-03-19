@@ -1,0 +1,23 @@
+{
+  "balance": 70,
+  "totalEarned": 70,
+  "totalBookings": 1,
+  "transactions": [
+    {
+      "id": "COMM_DEMO_001",
+      "bookingId": 4,
+      "workerId": 4,
+      "workerName": "Sunita Verma",
+      "userName": "David Park",
+      "amount": 70,
+      "workerPayout": 1400,
+      "totalCost": 1470,
+      "commissionRate": 0.05,
+      "status": "credited",
+      "mode": "simulation",
+      "createdAt": "2025-04-22T16:30:00Z",
+      "note": "Commission from booking #4 — Mechanic"
+    }
+  ],
+  "updatedAt": "2025-04-22T16:30:00Z"
+}

@@ -1,0 +1,218 @@
+[
+  {
+    "id": 1,
+    "userId": 6,
+    "workerId": 1,
+    "userName": "Alice Johnson",
+    "workerName": "Rajesh Kumar",
+    "category": "Plumber",
+    "date": "2025-04-15",
+    "status": "accepted",
+    "notes": "Fix leaking kitchen sink and replace faucet.",
+    "duration": 2,
+    "hourlyRate": 500,
+    "serviceCost": 1000,
+    "platformFee": 50,
+    "cost": 1050,
+    "workerPayout": 1000,
+    "adminCommission": 50,
+    "adminTransactionId": null,
+    "commissionStatus": "pending",
+    "splitDetails": {
+      "workerPayout": 1000,
+      "adminCommission": 50,
+      "total": 1050,
+      "rate": 0.05
+    },
+    "paymentStatus": "unpaid",
+    "transactionId": null,
+    "paidAt": null,
+    "statusHistory": [
+      {
+        "status": "pending",
+        "changedBy": 6,
+        "changedAt": "2025-03-10T10:00:00Z",
+        "note": "Booking created"
+      },
+      {
+        "status": "accepted",
+        "changedBy": 2,
+        "changedAt": "2026-03-13T14:47:51.065Z",
+        "note": ""
+      }
+    ],
+    "createdAt": "2025-03-10T10:00:00Z",
+    "updatedAt": "2026-03-13T14:47:51.066Z"
+  },
+  {
+    "id": 2,
+    "userId": 7,
+    "workerId": 2,
+    "userName": "David Park",
+    "workerName": "Priya Sharma",
+    "category": "Electrician",
+    "date": "2025-04-18",
+    "status": "in_progress",
+    "notes": "Install 3 new power outlets in the living room.",
+    "duration": 3,
+    "hourlyRate": 600,
+    "serviceCost": 1800,
+    "platformFee": 90,
+    "cost": 1890,
+    "workerPayout": 1800,
+    "adminCommission": 90,
+    "adminTransactionId": null,
+    "commissionStatus": "pending",
+    "splitDetails": {
+      "workerPayout": 1800,
+      "adminCommission": 90,
+      "total": 1890,
+      "rate": 0.05
+    },
+    "paymentStatus": "unpaid",
+    "transactionId": null,
+    "paidAt": null,
+    "statusHistory": [
+      {
+        "status": "pending",
+        "changedBy": 7,
+        "changedAt": "2025-03-11T09:00:00Z",
+        "note": "Booking created"
+      },
+      {
+        "status": "accepted",
+        "changedBy": 3,
+        "changedAt": "2025-03-12T08:00:00Z",
+        "note": ""
+      },
+      {
+        "status": "in_progress",
+        "changedBy": 3,
+        "changedAt": "2025-04-18T09:00:00Z",
+        "note": "Work started"
+      }
+    ],
+    "createdAt": "2025-03-11T09:00:00Z",
+    "updatedAt": "2025-04-18T09:00:00Z"
+  },
+  {
+    "id": 3,
+    "userId": 6,
+    "workerId": 3,
+    "userName": "Alice Johnson",
+    "workerName": "Arjun Patel",
+    "category": "Carpenter",
+    "date": "2025-03-20",
+    "status": "completed",
+    "notes": "Repair damaged kitchen cabinet doors.",
+    "duration": 4,
+    "hourlyRate": 450,
+    "serviceCost": 1800,
+    "platformFee": 90,
+    "cost": 1890,
+    "workerPayout": 1800,
+    "adminCommission": 90,
+    "adminTransactionId": null,
+    "commissionStatus": "pending",
+    "splitDetails": {
+      "workerPayout": 1800,
+      "adminCommission": 90,
+      "total": 1890,
+      "rate": 0.05
+    },
+    "paymentStatus": "unpaid",
+    "transactionId": null,
+    "paidAt": null,
+    "statusHistory": [
+      {
+        "status": "pending",
+        "changedBy": 6,
+        "changedAt": "2025-03-08T14:00:00Z",
+        "note": "Booking created"
+      },
+      {
+        "status": "accepted",
+        "changedBy": 4,
+        "changedAt": "2025-03-09T10:00:00Z",
+        "note": ""
+      },
+      {
+        "status": "in_progress",
+        "changedBy": 4,
+        "changedAt": "2025-03-20T09:00:00Z",
+        "note": "Work started"
+      },
+      {
+        "status": "completed",
+        "changedBy": 4,
+        "changedAt": "2025-03-20T14:00:00Z",
+        "note": "Work finished"
+      }
+    ],
+    "createdAt": "2025-03-08T14:00:00Z",
+    "updatedAt": "2025-03-20T14:00:00Z"
+  },
+  {
+    "id": 4,
+    "userId": 7,
+    "workerId": 4,
+    "userName": "David Park",
+    "workerName": "Sunita Verma",
+    "category": "Mechanic",
+    "date": "2025-04-22",
+    "status": "confirmed",
+    "notes": "Full car inspection and oil change.",
+    "duration": 2,
+    "hourlyRate": 700,
+    "serviceCost": 1400,
+    "platformFee": 70,
+    "cost": 1470,
+    "workerPayout": 1400,
+    "adminCommission": 70,
+    "adminTransactionId": "COMM_DEMO_001",
+    "commissionStatus": "credited",
+    "splitDetails": {
+      "workerPayout": 1400,
+      "adminCommission": 70,
+      "total": 1470,
+      "rate": 0.05
+    },
+    "paymentStatus": "paid",
+    "transactionId": "SIM_WRK_DEMO_ABC123",
+    "paidAt": "2025-04-22T16:30:00Z",
+    "statusHistory": [
+      {
+        "status": "pending",
+        "changedBy": 7,
+        "changedAt": "2025-03-12T11:00:00Z",
+        "note": "Booking created"
+      },
+      {
+        "status": "accepted",
+        "changedBy": 5,
+        "changedAt": "2025-03-13T08:00:00Z",
+        "note": ""
+      },
+      {
+        "status": "in_progress",
+        "changedBy": 5,
+        "changedAt": "2025-04-22T10:00:00Z",
+        "note": "Inspection started"
+      },
+      {
+        "status": "completed",
+        "changedBy": 5,
+        "changedAt": "2025-04-22T13:00:00Z",
+        "note": "Job done"
+      },
+      {
+        "status": "confirmed",
+        "changedBy": 7,
+        "changedAt": "2025-04-22T16:30:00Z",
+        "note": "Confirmed by user. [SIMULATED] Worker paid ₹1400 (txn: SIM_WRK_DEMO_ABC123). Admin commission ₹70 (credited)."
+      }
+    ],
+    "createdAt": "2025-03-12T11:00:00Z",
+    "updatedAt": "2025-04-22T16:30:00Z"
+  }
+]
