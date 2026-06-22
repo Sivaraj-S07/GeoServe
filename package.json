@@ -1,0 +1,12 @@
+{
+  "name": "geoserve-root",
+  "private": true,
+  "description": "Monorepo root — no application code. See backend/, frontend/, admin-panel/ subdirectories.",
+  "scripts": {
+    "dev:backend":  "cd backend && npm run dev",
+    "dev:frontend": "cd frontend && npm run dev",
+    "dev:admin":    "cd admin-panel && npm run dev",
+    "build:frontend": "cd frontend && npm run build",
+    "build:admin":    "cd admin-panel && npm run build"
+  }
+}

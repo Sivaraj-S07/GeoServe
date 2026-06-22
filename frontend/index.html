@@ -1,0 +1,66 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/logo.svg" />
+    <link rel="apple-touch-icon" href="/logo.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+    <meta name="theme-color" content="#2563eb" />
+    <meta name="description" content="GeoServe — Connect with trusted local professionals instantly" />
+    <title>GeoServe — Connect with Local Professionals</title>
+
+    <!-- Preconnect for Google Fonts (non-blocking) -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+
+    <!-- Google Fonts loaded as <link> not @import (better performance) -->
+    <link
+      href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400;12..96,500;12..96,600;12..96,700;12..96,800&family=Manrope:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap"
+      rel="stylesheet"
+      media="print"
+      onload="this.media='all'"
+    />
+    <noscript>
+      <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400;12..96,500;12..96,600;12..96,700;12..96,800&family=Manrope:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+    </noscript>
+
+    <!-- Minimal critical CSS to prevent FOUC (flash of unstyled content) -->
+    <style>
+      html { font-family: 'Manrope', system-ui, -apple-system, sans-serif; }
+      body { margin: 0; background: #f3f7fc; }
+      [data-theme="dark"] body { background: #0f172a; }
+      #root-loader {
+        position: fixed; inset: 0; display: flex; align-items: center;
+        justify-content: center; background: #f3f7fc; z-index: 9999;
+        transition: opacity 0.2s ease;
+      }
+      [data-theme="dark"] #root-loader { background: #0f172a; }
+      #root-loader .spinner {
+        width: 40px; height: 40px; border-radius: 50%;
+        border: 3px solid #dbeafe; border-top-color: #2563eb;
+        animation: _spin 0.7s linear infinite;
+      }
+      @keyframes _spin { to { transform: rotate(360deg); } }
+    </style>
+
+    <!-- Apply saved theme immediately to prevent flash -->
+    <script>
+      (function() {
+        try {
+          var t = localStorage.getItem('gs_theme');
+          if (t === 'dark' || (!t && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+            document.documentElement.setAttribute('data-theme', 'dark');
+          }
+        } catch(e) {}
+      })();
+    </script>
+  </head>
+  <body>
+    <!-- Instant loading indicator shown before React hydrates -->
+    <div id="root-loader">
+      <div class="spinner"></div>
+    </div>
+    <div id="root"></div>
+    <script type="module" src="/src/main.jsx"></script>
+  </body>
+</html>
