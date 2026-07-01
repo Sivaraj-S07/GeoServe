@@ -1,0 +1,58 @@
+[
+  {
+    "id": 1,
+    "name": "Plumber",
+    "icon": "cat-plumber",
+    "bannerColor": "#0369a1",
+    "enabled": true,
+    "custom": false
+  },
+  {
+    "id": 2,
+    "name": "Electrician",
+    "icon": "cat-electrician",
+    "bannerColor": "#d97706",
+    "enabled": true,
+    "custom": false
+  },
+  {
+    "id": 3,
+    "name": "Carpenter",
+    "icon": "cat-carpenter",
+    "bannerColor": "#b45309",
+    "enabled": true,
+    "custom": false
+  },
+  {
+    "id": 4,
+    "name": "Mechanic",
+    "icon": "cat-mechanic",
+    "bannerColor": "#334155",
+    "enabled": true,
+    "custom": false
+  },
+  {
+    "id": 5,
+    "name": "House Cleaner",
+    "icon": "cat-cleaner",
+    "bannerColor": "#0d9488",
+    "enabled": true,
+    "custom": false
+  },
+  {
+    "id": 6,
+    "name": "Painter",
+    "icon": "cat-painter",
+    "bannerColor": "#db2777",
+    "enabled": true,
+    "custom": false
+  },
+  {
+    "id": 7,
+    "name": "Gardener",
+    "icon": "cat-gardener",
+    "bannerColor": "#16a34a",
+    "enabled": true,
+    "custom": false
+  }
+]

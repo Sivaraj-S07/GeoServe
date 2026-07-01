@@ -1,0 +1,23 @@
+services:
+  - type: web
+    name: geoserve-backend
+    runtime: node
+    rootDir: backend
+    buildCommand: npm install
+    startCommand: npm start
+    envVars:
+      - key: PORT
+        value: 10000
+      - key: NODE_VERSION
+        value: 20
+      - key: JWT_SECRET
+        generateValue: true
+      - key: CORS_ORIGIN
+        sync: false   # Set manually to your Vercel frontend URL(s), comma-separated
+                      # e.g. https://your-app.vercel.app,https://your-admin.vercel.app
+      - key: RAZORPAY_KEY_ID
+        sync: false   # Leave blank to run in simulation mode
+      - key: RAZORPAY_KEY_SECRET
+        sync: false   # Leave blank to run in simulation mode
+      - key: RAZORPAY_ACCOUNT_NUMBER
+        sync: false   # Leave blank to run in simulation mode

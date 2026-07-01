@@ -1,0 +1,63 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" role="img" aria-label="GeoServe Logo">
+  <defs>
+    <radialGradient id="oceanGrad" cx="38%" cy="35%" r="65%">
+      <stop offset="0%"   stop-color="#38bdf8"/>
+      <stop offset="40%"  stop-color="#0ea5e9"/>
+      <stop offset="75%"  stop-color="#0369a1"/>
+      <stop offset="100%" stop-color="#0c4a6e"/>
+    </radialGradient>
+    <linearGradient id="landGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%"   stop-color="#86efac"/>
+      <stop offset="50%"  stop-color="#4ade80"/>
+      <stop offset="100%" stop-color="#22c55e"/>
+    </linearGradient>
+    <radialGradient id="glowGrad" cx="50%" cy="50%" r="50%">
+      <stop offset="0%"   stop-color="#06b6d4" stop-opacity="0.6"/>
+      <stop offset="100%" stop-color="#0891b2" stop-opacity="0"/>
+    </radialGradient>
+    <radialGradient id="shineGrad" cx="32%" cy="28%" r="48%">
+      <stop offset="0%"   stop-color="rgba(255,255,255,0.55)"/>
+      <stop offset="60%"  stop-color="rgba(255,255,255,0.10)"/>
+      <stop offset="100%" stop-color="rgba(255,255,255,0)"/>
+    </radialGradient>
+    <radialGradient id="shadowGrad" cx="50%" cy="85%" r="40%">
+      <stop offset="0%"   stop-color="rgba(3,105,161,0.7)"/>
+      <stop offset="100%" stop-color="rgba(3,105,161,0)"/>
+    </radialGradient>
+    <linearGradient id="rimGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%"   stop-color="rgba(103,232,249,0.9)"/>
+      <stop offset="50%"  stop-color="rgba(6,182,212,0.3)"/>
+      <stop offset="100%" stop-color="rgba(12,74,110,0.8)"/>
+    </linearGradient>
+    <clipPath id="globeClip">
+      <circle cx="50" cy="50" r="44"/>
+    </clipPath>
+  </defs>
+  <circle cx="50" cy="50" r="49" fill="url(#glowGrad)" opacity="0.7"/>
+  <ellipse cx="50" cy="95" rx="26" ry="4" fill="rgba(3,105,161,0.35)"/>
+  <circle cx="50" cy="50" r="44" fill="url(#oceanGrad)"/>
+  <g clip-path="url(#globeClip)" fill="url(#landGrad)" opacity="0.92">
+    <path d="M12,24 Q16,18 22,19 L28,22 Q32,20 36,24 L38,30 Q40,35 36,40 L32,45 Q28,50 24,48 L18,44 Q10,40 11,34 Z"/>
+    <path d="M24,52 Q28,50 32,53 L34,60 Q35,68 30,75 L24,80 Q18,78 16,70 Q14,62 18,56 Z"/>
+    <path d="M46,18 Q50,15 55,17 L58,22 Q60,27 56,30 L50,32 Q44,30 44,24 Z"/>
+    <path d="M46,34 Q52,30 58,33 L62,40 Q65,50 62,60 L58,68 Q52,72 46,68 L42,58 Q38,48 42,40 Z"/>
+    <path d="M58,16 Q65,12 74,15 L80,20 Q84,26 80,32 L74,36 Q66,38 60,34 L56,26 Z"/>
+    <path d="M66,60 Q72,57 78,60 L82,66 Q82,73 76,75 L68,74 Q62,70 63,64 Z"/>
+  </g>
+  <g clip-path="url(#globeClip)" fill="none" stroke="rgba(255,255,255,0.18)" stroke-width="0.8">
+    <ellipse cx="50" cy="50" rx="44" ry="10"/>
+    <ellipse cx="50" cy="50" rx="44" ry="22"/>
+    <ellipse cx="50" cy="50" rx="44" ry="35"/>
+    <line x1="6" y1="50" x2="94" y2="50"/>
+  </g>
+  <g clip-path="url(#globeClip)" fill="none" stroke="rgba(255,255,255,0.12)" stroke-width="0.7">
+    <path d="M50,6 Q60,28 60,50 Q60,72 50,94"/>
+    <path d="M50,6 Q40,28 40,50 Q40,72 50,94"/>
+    <path d="M50,6 Q74,22 86,50 Q74,78 50,94"/>
+    <path d="M50,6 Q26,22 14,50 Q26,78 50,94"/>
+  </g>
+  <circle cx="50" cy="50" r="44" fill="url(#shadowGrad)" clip-path="url(#globeClip)"/>
+  <circle cx="50" cy="50" r="44" fill="url(#shineGrad)" clip-path="url(#globeClip)"/>
+  <circle cx="50" cy="50" r="44" fill="none" stroke="url(#rimGrad)" stroke-width="2.5"/>
+  <circle cx="50" cy="50" r="44" fill="none" stroke="rgba(103,232,249,0.45)" stroke-width="3" clip-path="url(#globeClip)"/>
+</svg>
